@@ -12,9 +12,10 @@ class OneHotEncoder():
             uniquevals=[a for a in df[x].unique()]
             self.dict[x]=uniquevals
     
-    def transform(self, df:pd.DataFrame):
+    def transform(self, dforignal:pd.DataFrame):
+        df=dforignal.copy()
         for col in self.dict:
-            for unqval in dict[col]:
+            for unqval in self.dict[col]:
                 for row in range(len(df[col])):
                     if df.loc[row, col] == unqval:
                         df.loc[row, unqval]=1
