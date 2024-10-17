@@ -14,7 +14,8 @@ class OrdinalEncoder():
                 d[b]=a
             self.dict[x]=d
 
-    def transform(self,df:pd.DataFrame):
+    def transform(self,dforignal:pd.DataFrame):
+        df=dforignal.copy()
         for x in self.dict.keys():
             df[x]=df[x].apply(lambda a: self.dict[x][a])
         return df
